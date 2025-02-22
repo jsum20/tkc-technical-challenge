@@ -39,10 +39,14 @@ public class GateController {
 
     @GetMapping("/{gateCode}/to/{targetGateCode}")
     public ResponseEntity<?> getRoute(@PathVariable String gateCode, @PathVariable String targetGateCode) {
+        System.out.println("Neighbors of SOL: " + graphService.getGraph().get("SOL"));
+        System.out.println("Neighbors of ARC: " + graphService.getGraph().get("ARC"));
         List<String> result = DijkstraPathfinder.findShortestRoute(graphService.getGraph(), gateCode, targetGateCode);
         if (result == null) {
+            System.out.println("Route not found between " + gateCode + " and " + targetGateCode);
             return ResponseEntity.notFound().build();
         }
+        System.out.println("Route found: " + result);
         return ResponseEntity.ok().body(result);
     }
 }

@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.jason</groupId>
 	<artifactId>tkc-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>tkc-api</name>
 	<description>Technical Challenge for TKC</description>
 	<url/>

@@ -26,8 +26,10 @@ public class GraphService {
     @PostConstruct
     public void buildGraph() {
         List<Gate> gates = gateRepository.findAll();
+        System.out.println("Loaded Gates: " + gates);
 
         for (Gate gate : gates) {
+            System.out.println("Gate: " + gate.getName() + " -> Connections: " + gate.getConnections());
             graph.put(gate.getName(), gate.getConnections());
         }
     }
